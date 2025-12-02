@@ -17,11 +17,64 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>Airline Ticket Reservation</title>
+        <link rel="stylesheet" href="css/global.css">
+
+        <script>
+            //Show the return trip form section depending on checkbox state.
+            function displayRoundTrip()
+            {
+                const returnTripSection = document.getElementById("return-trip-information");
+
+                if(document.getElementById("round-trip-checkbox").checked) returnTripSection.style.visibility = "visible";
+                
+                else returnTripSection.style.visibility = "hidden";
+            }
+        </script>
     </head>
 
     <body>
-        <h1>AIRLINE TICKET RESERVATION</h1>
+        <div id="airline-background-container">
+            <img id="airline-background-image" src="./assets/airline-banner.jpg" alt="Airline Header">
+        </div>
+          
+        <div id="reservation-container">
+            <h1 id="main-header" class="">Airline Ticket Reservation</h1>
+
+            <div id="booking-container">
+                <h2 id="form-header" class="">Booking Information</h2>
+                <form id="reservation-form">
+                    <div>
+                        <input id="booking-form-email" class="form-input" type="email" placeholder="Email Address">
+                    </div>
+                    
+                    <div>
+                        <label for="booking-datetime">Flight Departure Time</label>
+                        <input id="departure-datetime" class="booking-form-date form-input" type="date" required>
+                        <input class="booking-form-time form-input" type="time">
+                    </div>
+                    
+                    <div>
+                        <label for="round-trip-checkbox">Round Trip: </label>
+                        <input id="round-trip-checkbox" type="checkbox" checked="false" onclick="displayRoundTrip()">
+                    </div>
+                    
+                    <div id="return-trip-information" style="visibility: hidden;">
+                        <label for="booking-return-datetime">Return Flight Departure Time</label>
+                        <input id="return-datetime" class="booking-form-date form-input" type="date">
+                        <input class="booking-form-time form-input" type="time">
+                    </div>
+                    
+                    <button id="booking-submit">Reserve a Ticket</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            //We make an initial call to the toggle display for saved checkbox information on reload
+            displayRoundTrip()
+        </script>
     </body>
 </html>

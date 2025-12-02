@@ -1,0 +1,71 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#airline-background-container {
+    height: 200px;
+    width: auto;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#airline-background-image {
+    height: auto;
+    width: 1600px;
+}
+
+#reservation-container {
+    height: auto;
+    margin: auto;
+    width: 75%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#booking-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border: black;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+}
+
+#reservation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-input {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid black;
+}
+
+
+/* 
+Media width definitions sourced from Microsoft screen breakpoints 
+https://learn.microsoft.com/en-us/windows/apps/design/layout/screen-sizes-and-breakpoints-for-responsive-design
+ */
+@media screen and (min-width: 641px) {
+    #reservation-container {
+        width: 66%;
+    }
+}
+
+@media screen and (min-width: 1008px) {
+    #reservation-container {
+        width: 50%;
+    }
+}
