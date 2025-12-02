@@ -27,10 +27,20 @@
             function displayRoundTrip()
             {
                 const returnTripSection = document.getElementById("return-trip-information");
+                const returnTripDateTime = document.getElementById("return-datetime");
 
-                if(document.getElementById("round-trip-checkbox").checked) returnTripSection.style.visibility = "visible";
+                if(document.getElementById("round-trip-checkbox").checked) 
+                {
+                    returnTripSection.style.visibility = "visible";
+                    returnTripDateTime.required = true;
+                }
                 
-                else returnTripSection.style.visibility = "hidden";
+                else 
+                {
+                    returnTripSection.style.visibility = "hidden";
+                    returnTripDateTime.required = false;
+                }
+
             }
         </script>
     </head>
@@ -47,13 +57,13 @@
                 <h2 id="form-header" class="">Booking Information</h2>
                 <form id="reservation-form">
                     <div>
-                        <input id="booking-form-email" class="form-input" type="email" placeholder="Email Address">
+                        <input id="booking-form-email" class="form-input" type="email" placeholder="Email Address" required>
                     </div>
                     
                     <div>
                         <label for="booking-datetime">Flight Departure Time</label>
                         <input id="departure-datetime" class="booking-form-date form-input" type="date" required>
-                        <input class="booking-form-time form-input" type="time">
+                        <input class="booking-form-time form-input" type="time" required>
                     </div>
                     
                     <div>
@@ -63,8 +73,7 @@
                     
                     <div id="return-trip-information" style="visibility: hidden;">
                         <label for="booking-return-datetime">Return Flight Departure Time</label>
-                        <input id="return-datetime" class="booking-form-date form-input" type="date">
-                        <input class="booking-form-time form-input" type="time">
+                        <input id="return-datetime" class="booking-form-datetime form-input" type="datetime-local" required>
                     </div>
                     
                     <button id="booking-submit">Reserve a Ticket</button>
