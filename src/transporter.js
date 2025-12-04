@@ -1,6 +1,8 @@
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
+
+//Nodemailer config stuff
 nodemailer.createTestAccount((err, account) => {
     if(err) console.error('Failed to create a testing account. ' + err.message);
 });
